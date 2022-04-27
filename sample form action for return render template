@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+
+<h2>Welcome!</h2>
+
+<form action="/" method="POST">
+  Make a question:<br>
+  <br>
+  <input type="text" name="query" id="query">
+  <br><br>
+  <input type="submit" value="submit"/>
+</form>
+
+
+<br>
+<h3>Response is: </h3>
+<br>
+{{value}}
+</body>

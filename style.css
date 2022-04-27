@@ -1,0 +1,108 @@
+/* Store this code in 'style.css' file inside the 'static' folder*/
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* body {
+    background-color: #000;
+} */
+
+.header{
+    padding: 5px 120px;
+    width: 150px;
+    height: 70px;
+    background-color: #236B8E;
+}
+
+.border{
+    padding: 80px 50px;
+    width: 400px;
+    height: 450px;
+    border: 1px solid #236B8E;
+    border-radius: 0px;
+    background-color: #9AC0CD;
+}
+
+.btn {
+    padding: 10px 40px;
+    background-color: #236B8E;
+    color: #FFFFFF;
+    font-style: oblique;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+.textbox{
+    padding: 10px 40px;
+    background-color: #236B8E;
+    text-color: #FFFFFF;
+    border-radius: 10px;
+}
+
+::placeholder {
+    color: #FFFFFF;
+    opacity: 1;
+    font-style: oblique;
+    font-weight: bold;
+}
+
+.word{
+    color: #FFFFFF;
+    font-style: oblique;
+    font-weight: bold;
+}
+
+.bottom{
+    color: #236B8E;
+    font-style: oblique;
+    font-weight: bold;
+}
+
+.navbar {
+    margin-bottom: 30px;
+    margin-left: 10rem;
+}
+
+.tech-card {
+    margin-left: 10rem;
+}
+
+.techCard {
+    width: 36rem;
+}
+
+.card-header {
+    color: #1000ff;
+    padding: 15px;
+    font-size: 20px;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+.list-group-item {
+    cursor: pointer;
+}
+
+.anchor {
+    text-decoration: none;
+    color: #000;
+    margin-left: 1px;
+}
+
+.anchor:hover {
+    color: #cc0000;
+    text-decoration: none;
+}
+
+.node-header {
+    text-align:center;
+}
+
+.reply {
+    color: #1000ff;
+}
+
+.btn-thread {
+    background-color: #1000ff;
+}

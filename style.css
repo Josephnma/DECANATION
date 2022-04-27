@@ -106,3 +106,33 @@
 .btn-thread {
     background-color: #1000ff;
 }
+
+
+/* style for post file*/
+
+#post-heading {
+    text-align: center;
+}
+
+#card-header {
+    font-size: 20px;
+    font-weight: bolder;
+    position: relative;
+    left: -470px;
+}
+
+.card {
+   width: 2600px;
+   height: 400px;
+}
+
+.card input {
+    width: 1010px;
+    border-radius: 4px;
+    
+}
+
+.btn-success {
+    width: 200px;
+    background: #1000ff;
+}

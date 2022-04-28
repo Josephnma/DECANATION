@@ -6,8 +6,6 @@ from flask_session import Session
 from tempfile import mkdtemp
 from werkzeug.exceptions import default_exceptions, HTTPException, InternalServerError
 from werkzeug.security import check_password_hash, generate_password_hash
-from flask import Flask, render_template, redirect, url_for
-
 
 # Configure application
 app = Flask(__name__)
@@ -43,11 +41,11 @@ db = SQL("sqlite:///decanation.db")
 def chat():
     return render_template("chat.html")
 
-@app.route("/index")
+@app.route("/")
 def index():
     return render_template("index.html")
 
-@app.route("/", methods=["GET", "POST"])
+@app.route("/login", methods=["GET", "POST"])
 def login():
     """Log user in"""
 
@@ -73,7 +71,7 @@ def login():
         session["user_id"] = rows[0]["id"]
 
         # Redirect user to home page
-        return redirect("/index")
+        return redirect("/")
 
     # User reached route via GET (as by clicking a link or via redirect)
     else:
@@ -118,6 +116,68 @@ def register():
 
     return render_template("register.html")
 
+@app.route('/nodejs')
+def nodejs():
+    return render_template('nodejs.html')
+
+@app.route('/create')
+def create():
+    return render_template('create.html')
+
+@app.route('/creat')
+def creat():
+    return render_template('creat.html')
+
+
+
+@app.route('/ruby')
+def ruby():
+    return render_template('ruby.html')
+
+@app.route('/golang')
+def golang():
+    return render_template('golang.html')
+
+@app.route('/java')
+def java():
+    return render_template('java.html')
+
+@app.route('/python')
+def python():
+    return render_template('python.html')
+
+@app.route('/interview')
+def interview():
+    return render_template('interview.html')
+
+@app.route('/likes')
+def likes():
+    return render_template('/like.html')
+
+@app.route('/view')
+def view():
+    return render_template('/view.html')
+
+@app.route('/noderesource')
+def noderesource():
+    return render_template('/noderesource.html')
+
+@app.route('/golangresource')
+def golangresource():
+    return render_template('/golangresource.html')
+
+@app.route('/pythonresource')
+def pythonresource():
+    return render_template('/pythonresource.html')
+
+@app.route('/javaresource')
+def javaresource():
+    return render_template('/javaresource.html')
+
+@app.route('/cresource')
+def cresource():
+    return render_template('/cresource.html')
+
 #search
 @app.route('/search', methods=["POST","GET"])  # 'GET' is the default method, you don't need to mention it explicitly
 def search():
@@ -129,8 +189,25 @@ def search():
         return render_template("register.html")
     else:
         return "page not found"
-    # req_search = search.query.filter_by(req_no=query)
+    req_search = search.query.filter_by(req_no=query)
 
 
-    return render_template("index.html")
+@app.route("/", methods=['POST', 'GET'])
+def result():
+
+    if request.method == 'POST':
+       query = request.form['query']
+       query2 = request.form['query2']
+    #    response = MyService.retrieve_response(query)
+       return render_template("view.html", query = query, query2 = query2)
+    #return render_template("view.html")
+if __name__ == "__main__":
+    app.run()
+
+
+
+
+
+
+
 

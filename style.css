@@ -7,6 +7,10 @@
 /* body {
     background-color: #000;
 } */
+h1, h2, h3{
+    font-family: Berkshire Swash;
+    margin-left: 10rem;
+}
 
 .header{
     padding: 5px 120px;
@@ -26,7 +30,7 @@
 
 .btn {
     padding: 10px 40px;
-    background-color: #236B8E;
+    background-color: #1000ff;
     color: #FFFFFF;
     font-style: oblique;
     font-weight: bold;
@@ -36,7 +40,7 @@
 .textbox{
     padding: 10px 40px;
     background-color: #236B8E;
-    text-color: #FFFFFF;
+    color: #FFFFFF;
     border-radius: 10px;
 }
 
@@ -107,32 +111,14 @@
     background-color: #1000ff;
 }
 
-
-/* style for post file*/
-
-#post-heading {
-    text-align: center;
-}
-
-#card-header {
-    font-size: 20px;
-    font-weight: bolder;
-    position: relative;
-    left: -470px;
-}
-
 .card {
-   width: 2600px;
-   height: 400px;
+    color: #1000ff;
+    font-size: 24px;
+    font-weight: normal;
+    margin-left: 10rem;
 }
 
-.card input {
-    width: 1010px;
-    border-radius: 4px;
-    
-}
-
-.btn-success {
-    width: 200px;
-    background: #1000ff;
+.card-header {
+    font-family: Berkshire Swash;
+    font-size: 50px;
 }

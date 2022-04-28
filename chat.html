@@ -1,110 +1,83 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <title>Chat</title>
-</head>
-<body>
-    <div class="container">
-    <div class="row bootstrap snippets bootdeys">
-        <div class="col-md-3">
-          <!-- DIRECT CHAT PRIMARY -->
-          <div class="box box-primary direct-chat direct-chat-primary">
-            <div class="box-header with-border">
-              <h3 class="box-title">Decanation Chat</h3>
-           <div class="box-tools pull-right">
-                <span data-toggle="tooltip" title="" class="badge bg-light-blue" data-original-title="3 New Messages">3</span>
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                </button>
-                <button type="button" class="btn btn-box-tool" data-toggle="tooltip" title="Contacts" data-widget="chat-pane-toggle">
-                  <i class="fa fa-comments"></i></button>
-                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-              </div>
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-              <!-- Conversations are loaded here -->
-              <div class="direct-chat-messages">
-                <!-- Message. Default to the left -->
-                <br>
-                <div class="direct-chat-msg">
-                  <div class="direct-chat-info clearfix">
-                    <span class="direct-chat-name pull-left">Alexander Pierce</span>
-                    <span class="direct-chat-timestamp pull-right">23 Jan 2:00 pm</span>
-                  </div>
+  <html lang="en">
+  <head>
+    <title>Deca_Chat</title>
+  <body>
 
-                  <br>
-                  <br>
-                  <!-- /.direct-chat-info -->
-                  <img class="direct-chat-img" src="https://bootdey.com/img/Content/user_1.jpg" alt="Message User Image"><!-- /.direct-chat-img -->
-                  <div class="direct-chat-text">
-                    Is this template really for free? That's unbelievable!
-                  </div>
-                  <!-- /.direct-chat-text -->
-                </div>
-                <!-- /.direct-chat-msg -->
+    <h3 style='color: #ccc;font-size: 30px;'>No message yet..</h3>
+    <div class="message_holder"></div>
 
-                <!-- Message to the right -->
-                <div class="direct-chat-msg right">
-                  <div class="direct-chat-info clearfix">
-                    <span class="direct-chat-name pull-right">Sarah Bullock</span>
-                    <span class="direct-chat-timestamp pull-left">23 Jan 2:05 pm</span>
-                  </div>
+    <form action="" method="POST">
+      <input type="text" class="username" placeholder="User Name"/>
+      <input type="text" class="message" placeholder="Messages"/>
+      <input type="submit"/>
+    </form>
 
-                  <br>
-                  <br>
-                  <!-- /.direct-chat-info -->
-                  <img class="direct-chat-img" src="https://bootdey.com/img/Content/user_2.jpg" alt="Message User Image"><!-- /.direct-chat-img -->
-                  <div class="direct-chat-text">
-                    You better believe it!
-                  </div>
-                  <!-- /.direct-chat-text -->
-                </div>
-                <!-- /.direct-chat-msg -->
-              </div>
-              <!--/.direct-chat-messages-->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.min.js"></script>
+    <script type="text/javascript">
+      var socket = io.connect('http://' + document.domain + ':' + location.port);
 
-              <!-- Contacts are loaded here -->
-              <div class="direct-chat-contacts">
-                <ul class="contacts-list">
-                  <li>
-                    <a href="#">
-                      <img class="contacts-list-img" src="https://bootdey.com/img/Content/user_1.jpg">
+      socket.on( 'connect', function() {
+        socket.emit( 'my event', {
+          data: 'User Connected'
+        } )
+        var form = $( 'form' ).on( 'submit', function( e ) {
+          e.preventDefault()
+          let user_name = $( 'input.username' ).val()
+          let user_input = $( 'input.message' ).val()
+          socket.emit( 'my event', {
+            user_name : user_name,
+            message : user_input
+          } )
+          $( 'input.message' ).val( '' ).focus()
+        } )
+      } )
+      socket.on( 'my response', function( msg ) {
+        console.log( msg )
+        if( typeof msg.user_name !== 'undefined' ) {
+          $( 'h3' ).remove()
+          $( 'div.message_holder' ).append( '<div><b style="color: #000">'+msg.user_name+'</b> '+msg.message+'</div>' )
+        }
+      })
+    </script>
+<style>
+  .gradient-custom {
+    /* fallback for old browsers */
+    background: #a18cd1;
 
-                      <div class="contacts-list-info">
-                            <span class="contacts-list-name">
-                              Count Dracula
-                              <small class="contacts-list-date pull-right">2/28/2015</small>
-                            </span>
-                        <span class="contacts-list-msg">How have you been? I was...</span>
-                      </div>
-                      <!-- /.contacts-list-info -->
-                    </a>
-                  </li>
-                  <!-- End Contact Item -->
-                </ul>
-                <!-- /.contatcts-list -->
-              </div>
-              <!-- /.direct-chat-pane -->
-            </div>
-            <!-- /.box-body -->
-            <div class="box-footer">
-              <form action="/add" method="post">
-                <div class="input-group">
-                  <input type="text" name="message" placeholder="Type Message ..." class="form-control">
-                      <span class="input-group-btn">
-                        <button type="submit" class="btn btn-primary btn-flat">Send</button>
-                      </span>
-                </div>
-              </form>
-            </div>
-            <!-- /.box-footer-->
-          </div>
-          <!--/.direct-chat -->
-        </div>
-    </body>
-    </html>
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(
+      45deg,
+      rgba(29, 236, 197, 0.6),
+      rgba(91, 14, 214, 0.6) 100%
+    );
+
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(
+      45deg,
+      rgba(29, 236, 197, 0.6),
+      rgba(91, 14, 214, 0.6) 100%
+    );
+  }
+</style>
+
+<!-- Background image -->
+<div
+  class="bg-image"
+  style="
+    background-image: url('https://mdbcdn.b-cdn.net/img/new/fluid/nature/011.webp');
+    height: 100vh;
+  "
+>
+  <div class="mask gradient-custom">
+    <div class="d-flex justify-content-center align-items-center h-100">
+      <h1 class="text-white mb-0">DecaNation --- Chat Room</h1>
+    </div>
+  </div>
+</div>
+<!-- Background image -->
+
+  </body>
+  </html>

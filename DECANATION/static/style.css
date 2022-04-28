@@ -1,0 +1,192 @@
+/* Store this code in 'style.css' file inside the 'static' folder*/
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* body {
+    background-color: #000;
+} */
+h1, h2, h3{
+    font-family: Berkshire Swash;
+    margin-left: 10rem;
+}
+
+.header{
+    padding: 5px 120px;
+    width: 150px;
+    height: 70px;
+    background-color: #236B8E;
+}
+
+.border{
+    padding: 80px 50px;
+    width: 400px;
+    height: 450px;
+    border: 1px solid #236B8E;
+    border-radius: 0px;
+    background-color: #9AC0CD;
+}
+
+.btn {
+    padding: 10px 40px;
+    background-color: #1000ff;
+    color: #FFFFFF;
+    font-style: oblique;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+.textbox{
+    padding: 10px 40px;
+    background-color: #236B8E;
+    color: #FFFFFF;
+    border-radius: 10px;
+}
+
+::placeholder {
+    color: #FFFFFF;
+    opacity: 1;
+    font-style: oblique;
+    font-weight: bold;
+}
+
+.word{
+    color: #FFFFFF;
+    font-style: oblique;
+    font-weight: bold;
+}
+
+.bottom{
+    color: #236B8E;
+    font-style: oblique;
+    font-weight: bold;
+}
+
+.navbar {
+    margin-bottom: 30px;
+    margin-left: 10rem;
+}
+
+.tech-card {
+    margin-left: 10rem;
+}
+
+.techCard {
+    width: 36rem;
+}
+
+.card-header {
+    color: #1000ff;
+    padding: 15px;
+    font-size: 20px;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+.list-group-item {
+    cursor: pointer;
+}
+
+.anchor {
+    text-decoration: none;
+    color: #000;
+    margin-left: 1px;
+}
+
+.anchor:hover {
+    color: #cc0000;
+    text-decoration: none;
+}
+
+.node-header {
+    text-align:center;
+}
+
+.reply {
+    color: #1000ff;
+}
+
+.btn-thread {
+    background-color: #1000ff;
+}
+
+.card-header {
+    font-family: Berkshire Swash;
+    font-size: 50px;
+}
+
+
+/* style for post files*/
+
+#post-heading {
+    text-align: center;
+    margin-left: 5rem;
+}
+
+#card-header {
+    font-size: 20px;
+    font-weight: bolder;
+    position: relative;
+    left: -470px;
+
+}
+
+.post-heading {
+    text-align: center;
+    position: relative;
+
+}
+
+#node-container {
+    margin: 0 auto;
+}
+
+.card input {
+    width: 850px;
+    border-radius: 4px;
+
+}
+
+.job-label {
+    font-size: 20px;
+}
+
+.btn-success {
+    width: 200px;
+    background: #1000ff;
+}
+.card {
+    color: #1000ff;
+    font-size: 24px;
+    font-weight: normal;
+    margin-left: 10rem;
+}
+
+.job-input {
+    margin: auto;
+    width: 700px;
+}
+
+.job-text {
+    width: 700px;
+    height: 400px;
+}
+
+.container {
+    position: relative;
+    left: 348px;
+}
+
+.fab fa-facebook-f{
+    margin-bottom: 5px;
+}
+
+.login-container {
+    position: relative;
+    top: 30px;
+}
+
+.nav-link {
+    color: #000;
+}
